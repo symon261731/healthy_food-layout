@@ -1,0 +1,258 @@
+@import 'null.scss';
+@import 'fonts.scss';
+
+html{
+    font-family: 'Helvetica';
+    color:white;
+}
+body{
+    background-color: #1A1A1A;
+}
+
+
+.container{
+    max-width: 1210px;
+    margin: 0 auto;
+    padding: 0 10px;
+}
+
+.header{
+    position: relative;
+    width: 100%;
+    top: 0;
+    left: 0;
+    &::before{
+        content:'';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 3;      
+    }
+    &::after{
+        content:'';
+        width: 100%;
+        height: 2px;
+        background-color:rgba(255, 255, 255, 0.1);
+        position: absolute;
+        bottom: 0;
+        left: 0;
+    }
+    &__body{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 80px;
+        position: relative;   
+    }
+    /*&__logotype{
+        max-width: 173.16px;
+        max-height: 24px;
+    }*/
+    &__logo{
+        flex: 0 0 173.16px;
+        z-index: 5;
+    }
+    &__logo img{
+        max-width: 100%;
+    }
+
+    //// BURGER
+    &__burger{
+        display: none;
+    }    
+    ///
+    &__list{
+        display: flex;
+        position: relative;
+        z-index: 5;
+    }
+    &__item{
+        &:not(:last-child){
+            margin-right: 40px;
+        }
+    }
+    &__link{
+        font-size: 14px;
+        font-weight: 700;
+        transition: all 150ms ease-in 0s;
+        &:hover{
+            color:#34C759;       
+        }
+    }
+}
+
+
+////////////////////////////////////// BURGER /////////////////////////////////////
+@media (max-width: 767px){
+
+    .header__burger{
+        display: block;
+        width: 30px;
+        height: 20px;
+        position: relative;
+        z-index: 5;
+        &::before{
+            content:'';
+            position: absolute;
+            top: 0;
+            height: 2px;
+            width: 100%;
+            background-color:#fff;
+            transition: all 0.3s ease 0s;
+        }
+        &::after{
+            content:'';
+            position: absolute;
+            bottom: 0;
+            height: 2px;
+            width: 100%;
+            background-color:#fff;
+            transition: all 0.3s ease 0s;
+        }
+    }
+    .header__burger span{
+        height: 2px;
+        width: 100%;
+        background-color: #fff;
+        position: absolute;
+        top: 9px;
+    }
+    //ВЫРЫВАЕМ МЕНЮ ИЗ ФЛЕКСА
+    .header__menu{
+        position: fixed;
+        left: 0;
+        top: -100%;
+        width: 100%;
+        height: 100%;
+        background-color:#34c759;
+        text-align: center;
+        padding: 70px 5px 20px 10px;
+        transition: all 0.8s ease 0s;
+
+    }
+    .header__body{
+        height: 50px;
+    }
+    .header__list{
+        display: block;
+    }
+    .header__item{
+        &:first-child{
+            padding-top: 20px;
+        }
+        &:not(:last-child){
+            margin-bottom: 50px;
+            margin-right: 0;
+        }
+    }
+    .header__link{
+        font-size: 35px;
+        &:hover{
+            color:white;
+        }
+    }
+}
+
+
+.header__burger.active{
+    &::before{
+        transform: rotate(45deg);
+        top: 9px;
+    }
+    &::after{
+        transform: rotate(-45deg);
+        bottom: 9px;
+    }
+}
+.header__burger.active span{
+    transform: scale(0);
+}
+.header__menu.active{
+    top: 0;
+}
+////////////////////////////////////// BACkGROUND//////////////////////////////
+
+.header__image{
+    position: relative;
+    width: 100%;
+    z-index: -2;
+    
+}
+.header__image img{
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    border-radius: 10px;
+
+}
+
+////////////////////////////////////// 
+
+///////////////////////////////MAIN////////////////////////////////////////
+
+.main__favorite-food{
+    padding-top: 80px;
+}
+.favorite-food{
+    &__content{
+    }
+    &__title{
+        font-size: 72px;
+        text-align: center;
+        letter-spacing: 10px;
+        margin-bottom: 16px;
+    }
+    &__title span{
+        font-weight: 700;
+    }
+    &__sub-title{
+        font-size: 16px;
+        color: rgba(255, 255, 255, 0.701);
+        text-align: center;
+        max-width: 595px;
+        margin: 0 auto;
+        line-height: 1.62;
+        //letter-spacing: -0.2px;
+        margin-bottom: 40px;
+    }
+    &__button{
+        text-align: center;
+    }
+    &__link{
+        font-size: 18px;
+        font-weight: 700;
+        background-color:#34C759;
+        letter-spacing: 0.2px;
+        padding: 25px 57px;
+        border-radius:43px;
+        transition: all 0.7s ease 0s;
+        &:hover{
+            color:black;
+            background-color:#34C759;
+        }
+    }
+}
+@media(max-width:767px){
+    .favorite-food{
+        &__title{
+            font-size: 50px;
+        }
+        &__sub-title{
+            font-size: 12px;
+        }
+    }
+}
+@media(max-width:375px){
+    .favorite-food{
+        &__title{
+            font-size: 45px;
+        }
+        &__sub-title{
+            font-size: 8px;
+        }
+    }
+}
