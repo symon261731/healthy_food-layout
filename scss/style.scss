@@ -7,7 +7,21 @@ html{
 }
 body{
     background-color: #1A1A1A;
+    padding: 0 5px;
 }
+
+.title{
+    &__name{
+        position: relative;
+        z-index: 2;
+        font-size: 30px;
+        letter-spacing: 0.2px;
+        color: #D9D9D9;
+        text-align: center;
+        line-height: 2.5;
+    }
+}
+
 
 
 .container{
@@ -122,6 +136,7 @@ body{
     //ВЫРЫВАЕМ МЕНЮ ИЗ ФЛЕКСА
     .header__menu{
         position: fixed;
+        z-index: 3;
         left: 0;
         top: -100%;
         width: 100%;
@@ -195,10 +210,12 @@ body{
 ///////////////////////////////MAIN////////////////////////////////////////
 
 .main__favorite-food{
-    padding-top: 80px;
+    padding-top: 91px;
+    margin-bottom: 70px;
 }
 .favorite-food{
     &__content{
+
     }
     &__title{
         font-size: 72px;
@@ -223,6 +240,8 @@ body{
         text-align: center;
     }
     &__link{
+        display: inline-block;
+        text-align: center;
         font-size: 18px;
         font-weight: 700;
         background-color:#34C759;
@@ -247,12 +266,101 @@ body{
     }
 }
 @media(max-width:375px){
+    .main__favorite-food{ padding-top: 50px};
     .favorite-food{
         &__title{
-            font-size: 45px;
+            font-size: 35px;
         }
         &__sub-title{
             font-size: 8px;
         }
+        &__link{
+            font-size: 14px;
+            padding: 20px 30px;
+        }
+    }
+}
+/////////////////////////////////////////////////////////////////////////////////
+
+.main__links{
+    margin-bottom: 164px;
+}
+.links{
+
+    &__content{
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+    &__flex-element{
+        flex:1 1 33.33%;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        row-gap: 15px;
+    }
+    &__main-link{
+        font-size: 16px;
+        transition: all 180ms ease 0s ;
+        &:hover{
+            color:#34c759;
+        }
+    }
+    &__explain{
+        font-size: 14px;
+        color:rgba(255, 255, 255, 0.502);
+    }
+}
+@media(max-width:620px){
+    .links{
+        &__content{
+            display: block;
+        }
+        &__flex-element{
+            margin-bottom: 40px;
+        }
+    }
+    .main__links{
+        margin-bottom: 80px;
+    }
+}
+
+///////////////////////////////////////////////////////////////////
+
+
+.slider{
+    &__container{
+        max-width: 1110px;
+        margin: 0 auto;
+    }
+    &__content{
+        background-color: #252525;
+        padding-top: 105px;
+        border-radius:6px;    
+    }
+    &__title{
+        line-height: 2;
+        margin-bottom: 61px;
+        ::before{
+            content:'ABOUT';
+            letter-spacing: 2px;
+            color: #303030;
+            font-size: 100px;
+            font-weight: 900;
+            line-height: 1.5;
+            position: absolute;
+            top: -30%;
+            z-index: 0;//РАЗОБРАТЬСЯ С Z-index адаптировать!
+        }
+    }
+    &__text{
+        text-align: center;
+        color:#a6a6a6;
+        font-size: 16px;
+        line-height: 1.88;
+        max-width: 734px;
+        margin: 0 auto;
+        margin-bottom: 90px;
     }
 }
